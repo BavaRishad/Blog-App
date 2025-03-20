@@ -1,0 +1,30 @@
+<%- include('partials/header.ejs', { headerTitle: 'My Blogs.' }) %>
+
+<div class="container">
+  <div class="card">
+    <div class="card-image">    
+      <h2 class="card-heading">
+        Create a New Post
+        <small>Share your thoughts with the world</small>
+      </h2>
+    </div>
+    <form class="card-form" action="/create" method="POST">
+      <div class="input">
+        <input type="text" class="input-field" id="title" name="title" required />
+        <label for="title" class="input-label">Title</label>
+      </div>
+      <div class="input">
+        <textarea id="content" class="input-field" name="content" required></textarea>
+        <label for="content" class="input-label">Content</label>
+      </div>
+      <div class="action">
+        <button type="submit" class="action-button">Create</button>
+      </div>
+    </form>
+    <div class="card-info">
+      <p>By creating a post, you agree to follow the community <a href="#"></a>.</p>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer.ejs') %>

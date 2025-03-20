@@ -1,0 +1,28 @@
+<%- include('partials/header.ejs', { headerTitle: 'My Blogs.' }) %>
+
+<div class="container">
+  <% if (posts.length === 0) { %>
+    <p class="no-posts-message">No posts yet. Be the first to create a post!</p>
+    <div class="create-blog-container">
+      <a href="/create" class="button create-blog-button">Add Blog</a>
+    </div>
+  <% } else { %>
+    <section class="blog-posts">
+      <% posts.forEach(post => { %>
+        <article class="post-card">
+          <h2><%= post.title %></h2>
+          <p><%= post.content %></p>
+          <small><%= post.date %></small>
+          <div class="action-buttons">
+            <a href="/edit/<%= post.id %>">Edit</a>
+            <form action="/delete/<%= post.id %>" method="POST">
+              <button type="submit" class="button button3">Delete !</button>
+            </form>
+          </div>
+        </article>
+      <% }) %>
+    </section>
+  <% } %>
+</div>
+
+<%- include('partials/footer.ejs') %>

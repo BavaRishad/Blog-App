@@ -1,0 +1,27 @@
+<%- include('partials/header.ejs', { headerTitle: 'My Blogs.' }) %>
+
+<div class="container">
+  <div class="card">
+    <div class="card-image">
+      <h2 class="card-heading">
+        Edit Post
+        <small>Make changes to your post below</small>
+      </h2>
+    </div>
+    <form class="card-form" action="/edit/<%= post.id %>" method="POST">
+      <div class="input">
+        <input type="text" class="input-field" id="title" name="title" value="<%= post.title %>" required />
+        <label for="title" class="input-label">Title</label>
+      </div>
+      <div class="input">
+        <textarea class="input-field" id="content" name="content" required><%= post.content %></textarea>
+        <label for="content" class="input-label">Content</label>
+      </div>
+      <div class="action">
+        <button type="submit" class="action-button">Save Changes</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<%- include('partials/footer.ejs') %>
